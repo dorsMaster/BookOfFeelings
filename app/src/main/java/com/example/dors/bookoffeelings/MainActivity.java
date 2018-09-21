@@ -15,19 +15,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void changeToTodayActivity(View view) {
-            Button today = findViewById(R.id.today_main_page);
             startActivities(new Intent[]{new Intent(MainActivity.this, Today.class)});
 
         }
 
 
     public void changeToHistoryActivity(View view) {
-        Button history = findViewById(R.id.history_main_page);
         startActivities(new Intent[]{new Intent(MainActivity.this, Calendar.class)});
     }
 
     public void changeToStatsActivity(View view) {
-        Button stas = findViewById(R.id.main_page_stats);
         startActivities(new Intent[]{new Intent(MainActivity.this, Stats.class)});
     }
 

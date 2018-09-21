@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,20 +9,28 @@
     android:weightSum="8"
     tools:context=".History">
 
-    <LinearLayout
+    <TextView
         android:id="@+id/historyDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
         android:orientation="horizontal"
-        android:layout_weight="1">
-    </LinearLayout>
+        android:layout_weight="1"/>
 
     <LinearLayout
         android:id="@+id/historyEmoji"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_weight="1.75">
+
+        <ImageView
+            android:id="@+id/historyImage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"/>
     </LinearLayout>
 
 
@@ -29,7 +38,7 @@
         android:id="@+id/notes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="0.25"
         android:baselineAligned="false"
         android:textSize="20sp"
         android:ems="10"
@@ -39,10 +48,15 @@
         android:id="@+id/plain_text_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textImeMultiLine"
-        android:lines="4"
-        android:minLines="4"
-        android:layout_weight="4"/>
+        android:inputType="textMultiLine"
+        android:lines="16"
+        android:scrollHorizontally="false"
+        android:fontFamily="@font/indieflower"
+        android:gravity="top"
+        android:focusable="false"
+        android:maxLines="18"
+        android:minLines="12"
+        android:layout_weight="5"/>
 
     <LinearLayout
         android:id="@+id/chart"

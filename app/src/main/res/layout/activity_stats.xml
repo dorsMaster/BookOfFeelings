@@ -6,8 +6,9 @@
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
     android:orientation="vertical"
-    android:weightSum="11"
+    android:weightSum="14"
     tools:context=".Stats">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,54 +16,139 @@
         android:layout_weight="1">
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/Joy"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:textSize="30sp"
-        android:layout_weight="1"
-        android:text="@string/joy_stats" />
+        android:weightSum="10"
+        android:orientation="horizontal"
+        android:layout_weight="2">
 
-    <TextView
-        android:id="@+id/Angry"
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            app:srcCompat="@drawable/ic_003_emoji_2" />
+
+        <TextView
+            android:id="@+id/sadStats"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_weight="3"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:textSize="30sp"
-        android:text="@string/Angry_stats" />
-    <TextView
-        android:id="@+id/Surprised"
+        android:weightSum="10"
+        android:orientation="horizontal"
+        android:layout_weight="2">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            app:srcCompat="@drawable/ic_001_surprised" />
+
+        <TextView
+            android:id="@+id/surprisedStats"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="3"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:textSize="30sp"
-        android:text="@string/surprised_stats" />
-    <TextView
-        android:id="@+id/Love"
+        android:weightSum="10"
+        android:orientation="horizontal"
+        android:layout_weight="2">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            app:srcCompat="@drawable/ic_006_surprised_1" />
+
+        <TextView
+            android:id="@+id/fearStats"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_weight="3"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:textSize="30sp"
-        android:text="@string/Love_stats" />
-    <TextView
-        android:id="@+id/Sad"
+        android:weightSum="10"
+        android:orientation="horizontal"
+        android:textSize="20sp"
+        android:layout_weight="2">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            app:srcCompat="@drawable/ic_004_emoji_3" />
+
+        <TextView
+            android:id="@+id/happyStats"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_weight="3"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:textSize="30sp"
-        android:text="@string/sad_stats" />
-    <TextView
-        android:id="@+id/Fear"
+        android:weightSum="10"
+        android:orientation="horizontal"
+        android:layout_weight="2">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            app:srcCompat="@drawable/ic_005_emoji_1" />
+
+        <TextView
+            android:id="@+id/loveStats"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_weight="3"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:textSize="30sp"
-        android:text="@string/Fear_stats" />
+        android:weightSum="10"
+        android:orientation="horizontal"
+        android:layout_weight="2">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            app:srcCompat="@drawable/ic_002_emoji" />
+
+        <TextView
+            android:id="@+id/angryStats"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="3"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3">
+        android:layout_weight="1">
     </LinearLayout>
 
 

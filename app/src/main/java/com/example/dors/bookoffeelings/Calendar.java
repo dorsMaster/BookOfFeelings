@@ -14,18 +14,14 @@ import android.widget.EditText;
 import static java.lang.String.valueOf;
 
 public class Calendar extends AppCompatActivity {
-    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    private final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    private final String MESSAGE_DATE = "com.example.myfirstapp.DATE";
 
     public String readData(String date) {
 //        TODO inmplement a try and catch error
         SharedPreferences sharedPref = this.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
-        String value = sharedPref.getString(date,"empty");
+        String value = sharedPref.getString(date," ");
         Log.d("READDATA",value);
-        Intent intent = new Intent(this, History.class);
-        EditText editText = (EditText) findViewById(R.id.plain_text_input);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, value);
-        startActivity(intent);
         return value;
 
     }
@@ -42,7 +38,14 @@ public class Calendar extends AppCompatActivity {
                     int myMonth = month+1;
                     int myDay = dayOfMonth;
                     String dateToInspect = valueOf(year) + String.format("%02d", myMonth) + String.format("%02d", myDay);
-                    readData(dateToInspect);
+                    String dateToShow = valueOf(year) +"/"+ String.format("%02d", myMonth) +"/"+ String.format("%02d", myDay);
+                    Intent intent = new Intent(getBaseContext(), History.class);
+                    intent.putExtra(MESSAGE_DATE,dateToShow);
+                    intent.putExtra(EXTRA_MESSAGE,readData(dateToInspect));
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    finish();
 
                 }
             });
@@ -50,6 +53,5 @@ public class Calendar extends AppCompatActivity {
 
         }
 
-
-    }
+}
 

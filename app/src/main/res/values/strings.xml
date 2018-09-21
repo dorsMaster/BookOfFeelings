@@ -7,7 +7,7 @@
     <string name="delete">Delete</string>
     <string name="Edit">edit</string>
     <string name="save">Save</string>
-    <string name="welcome_message">\n Welcome \n to your \n Book of Feelings</string>
+    <string name="welcome_message">Welcome \n to your \n Book of Feelings</string>
     <string name="joy_stats">Joy</string>
     <string name="Angry_stats">Angry</string>
     <string name="Love_stats">Love</string>

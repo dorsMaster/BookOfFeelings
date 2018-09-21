@@ -7,64 +7,101 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
 public class History extends AppCompatActivity {
 
-
-    private SharedPreferences sharedPrefs;
+    /*
+emotion 1: Sad
+emotion 2: Angry
+emotion 3: Joy
+emotion 4: Surprised
+emotion 5: Love
+emotion 6: Fear
+assertTrue("empty days list ", days.size()==0);
+*/
+        private SharedPreferences sharedPrefs;
         private SharedPreferences.Editor sharedPrefsEditor;
+        private final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+        private final String MESSAGE_DATE = "com.example.myfirstapp.DATE";
+        private String date;
+        private  String message;
+        public void editData(View view) {
+            Intent intent = new Intent(getBaseContext(), Today.class);
+            intent.putExtra(MESSAGE_DATE,date);
+            intent.putExtra(EXTRA_MESSAGE,message);
+            startActivity(intent);
+            finish();
+        }
+        public void deleteData(View view) {
+            String tmpDate = date.replace("/","");
+            SharedPreferences sharedPref = this.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+            sharedPref.edit().remove(tmpDate).apply();
+            goToNextActivity(Calendar.class);
+            finish();
+        }
 
-        @Override
+    @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_history);
 
             // Get the Intent that started this activity and extract the string
-            Intent intent = getIntent();
-            String message = intent.getStringExtra(Calendar.EXTRA_MESSAGE);
+            message = getIntent().getStringExtra(EXTRA_MESSAGE);
+            String emoji = message.substring(0,1);
+            date = getIntent().getStringExtra(MESSAGE_DATE);
+            ImageView imageView = findViewById(R.id.historyImage);
+            switch (emoji){
+                case "1":
+                    imageView.setImageResource(R.drawable.ic_003_emoji_2);
+                    break;
+                case "2":
+                    imageView.setImageResource(R.drawable.ic_002_emoji);
+                break;
+                case "3":
+                    imageView.setImageResource(R.drawable.ic_004_emoji_3);
+                    break;
+                case "4":
+                    imageView.setImageResource(R.drawable.ic_001_surprised);
+                    break;
+                case "5":
+                    imageView.setImageResource(R.drawable.ic_005_emoji_1);
+                    break;
+                case "6":
+                    imageView.setImageResource(R.drawable.ic_006_surprised_1);
+                    break;
+                default:
+                    break;
 
-            // Capture the layout's TextView and set the string as its text
+            }
+
+
+                /*
+        emotion 1: Sad
+        emotion 2: Angry
+        emotion 3: Joy
+        emotion 4: Surprised
+        emotion 5: Love
+        emotion 6: Fear
+        assertTrue("empty days list ", days.size()==0);
+*/
+
+        // Capture the layout's TextView and set the string as its text
             TextView textView = findViewById(R.id.plain_text_input);
-            textView.setText(message);
+            TextView historyDate = findViewById(R.id.historyDate);
+
+            historyDate.setText(date);
+            textView.setText(message.substring(1,message.length()));
+
         }
-
-
-
-        public void deleteData(View view, String date) {
-
-            SharedPreferences sharedPref = this.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
-            sharedPref.edit().remove(date).apply();
-        }
-//
-        public void editData(View view, String date) {
-
-            // Read Data
-            EditText txt;
-            txt= findViewById(R.id.plain_text_input);
-            SharedPreferences sharedPref = this.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
-            String value = sharedPref.getString(date,"empty");
-            Log.d("READDATA",value);
-            txt.setText(value.substring(1,value.length()-1));
-            String emotion =  value.substring(0);
-
-            //TODO how to change the text
-
-            //Save Data
-            String input =  String.valueOf(emotion)+ txt.getText().toString();
-            String key = date;
-            sharedPref = this.getSharedPreferences(getString(R.string.preference_file_key),Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPref.edit();
-            editor.putString(key, input);
-            editor.apply();
-            Log.d("SAVEACTIONKEY",key);
-//        Button save = findViewById(R.id.saveButton);
-            startActivities(new Intent[]{new Intent(History.this, MainActivity.class)});
-//
-        }
-
-
+    public void goToNextActivity(Class nextActivity) {
+        Intent intent = new Intent(this, nextActivity);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        this.startActivity(intent);
+    }
 
 }
 
