@@ -89,7 +89,7 @@ assertTrue("empty days list ", days.size()==0);
 */
 
         // Capture the layout's TextView and set the string as its text
-            TextView textView = findViewById(R.id.plain_text_input);
+            TextView textView = findViewById(R.id.plain_text_input_history);
             TextView historyDate = findViewById(R.id.historyDate);
 
             historyDate.setText(date);

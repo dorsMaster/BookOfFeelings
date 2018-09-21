@@ -134,6 +134,10 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:onClick="saveData"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        android:layout_margin="8dp"
+        android:background="@drawable/bt"
         android:text="@string/save"
         tools:ignore="InefficientWeight" />
 

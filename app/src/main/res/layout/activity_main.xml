@@ -57,9 +57,9 @@
         android:textColor="@android:color/white"
         android:textSize="21sp"
         android:layout_margin="8dp"
+        android:background="@drawable/bt"
         android:onClick="changeToStatsActivity"
         android:layout_weight="1"
-        android:background="@drawable/bt"
 
         />
 

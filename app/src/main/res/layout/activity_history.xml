@@ -45,7 +45,7 @@
         android:text="@string/Notes" />
 
     <EditText
-        android:id="@+id/plain_text_input"
+        android:id="@+id/plain_text_input_history"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
@@ -69,6 +69,10 @@
             android:id="@+id/delete"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textColor="@android:color/white"
+            android:textSize="21sp"
+            android:layout_margin="8dp"
+            android:background="@drawable/bt"
             android:layout_weight="1"
             android:onClick="deleteData"
             android:text="@string/delete" />
@@ -77,6 +81,10 @@
             android:id="@+id/edit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textColor="@android:color/white"
+            android:textSize="21sp"
+            android:layout_margin="8dp"
+            android:background="@drawable/bt"
             android:layout_weight="1"
             android:onClick="editData"
             android:text="@string/Edit" />
